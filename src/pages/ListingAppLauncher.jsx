@@ -57,7 +57,7 @@ const ListingAppLauncher = () => {
                 }
               >
                 <img
-                  src={`http://localhost:2354/icons/${app.icon}`}
+                  src={`${process.env.REACT_APP_API_URL}/icons/${app.icon}`}
                   alt={app.name}
                   style={{
                     width: "40px",
