@@ -1,13 +1,11 @@
-.bg-custom-navy {
-  background-color: #0b2156 !important;
+.App {
+  background-color: #0b2156;
 }
 
 .settings-form {
   padding: 2rem 2rem;
-  background-color: #0b2156;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

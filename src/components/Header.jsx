@@ -2,12 +2,9 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="header-wrapper">
-      <h1>Opezee</h1>
-      <a href="http://www.opezee.com" target="_blank" rel="noopener noreferrer">
-        www.opezee.com
-      </a>
-    </div>
+    <nav className="navbar navbar-light" style={{backgroundColor:'#0b2156'}}>
+      <a className="navbar-brand text-white" style={{marginLeft:"20px"}} href="http://www.opezee.com">Opezee</a>
+    </nav>
   );
 };
 

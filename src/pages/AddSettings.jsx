@@ -1,10 +1,8 @@
 import axios from "axios";
 import { useRef, useState } from "react";
-import { FaHome } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import AddConfig from "./AddConfig";
 import { toast } from "react-toastify";
-import Header from "../components/Header";
 
 const AddSettings = () => {
   const exeFileInputRef = useRef();
@@ -12,7 +10,6 @@ const AddSettings = () => {
   const [appName, setAppName] = useState("");
   const [paramName, setParamName] = useState("");
   const BASE_PATH = "C:/Program Files/Google/Chrome/Application";
-  const navigate = useNavigate();
 
   const handleExeFileChange = (event) => {
     const file = event.target.files[0];
@@ -81,7 +78,6 @@ const AddSettings = () => {
 
   return (
     <div className="settings-form">
-      <Header />
       <div className="form-group">
         <label>Applications</label>
         <div className="input-row">
@@ -123,9 +119,6 @@ const AddSettings = () => {
         <div style={{ marginTop: "20px" }}>
           <AddConfig />
         </div>
-      </div>
-      <div onClick={() => navigate("/")} className="settings-icon">
-        <FaHome />
       </div>
     </div>
   );

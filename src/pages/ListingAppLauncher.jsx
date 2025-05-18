@@ -1,10 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import useCustom from "../hooks/useCustom";
-import { FaCog } from "react-icons/fa";
-import Header from "../components/Header";
 
 const ListingAppLauncher = () => {
-  const navigate = useNavigate();
+ 
   const apps = useCustom();
 
   const launchApp = async (app) => {
@@ -19,18 +16,12 @@ const ListingAppLauncher = () => {
   };
 
   return (
-    <div
-      className="container-fluid min-vh-100 text-white"
-      style={{ backgroundColor: "#0b2156" }}
-    >
-      <Header />
-
-      <div className="container py-4">
-        <div className="row g-3 justify-content-center">
+    <div className="container p-5 d-flex justify-content-center">
+        <div className="row g-5">
           {apps?.map((app, index) => (
             <div
               key={index}
-              className="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center"
+              className="col-6 col-sm-6 col-md-4 col-lg-3"
             >
               <div
                 className="card text-center shadow-sm"
@@ -44,9 +35,7 @@ const ListingAppLauncher = () => {
                   justifyContent: "center",
                   alignItems: "center",
                   transition: "transform 0.2s ease",
-                  backgroundColor: "#f8f9fa",
                   color: "#333",
-                  userSelect: "none",
                 }}
                 onClick={() => launchApp(app)}
                 onMouseEnter={(e) =>
@@ -77,16 +66,6 @@ const ListingAppLauncher = () => {
           ))}
         </div>
       </div>
-
-      <div
-        className="position-fixed bottom-0 start-0 m-3 bg-white text-dark p-2 rounded-circle shadow"
-        onClick={() => navigate("/settings")}
-        role="button"
-        style={{ zIndex: 1000 }}
-      >
-        <FaCog />
-      </div>
-    </div>
   );
 };
 
