@@ -1,8 +1,7 @@
 import useCustom from "../hooks/useCustom";
 
 const ListingAppLauncher = () => {
- 
-  const apps = useCustom();
+  const { apps, loading } = useCustom();
 
   const launchApp = async (app) => {
     console.log(app, "app");
@@ -17,12 +16,24 @@ const ListingAppLauncher = () => {
 
   return (
     <div className="container p-5 d-flex justify-content-center">
+      {loading ? (
+        <p>Loading....</p>
+      ) : apps.length === 0 ? (
+        <div
+          style={{
+            fontSize: "1.2rem",
+            color: "#ffffff",
+            textAlign: "center",
+            padding: "40px 0",
+            fontWeight: "500",
+          }}
+        >
+          🚫 No apps found.
+        </div>
+      ) : (
         <div className="row g-5">
-          {apps?.map((app, index) => (
-            <div
-              key={index}
-              className="col-6 col-sm-6 col-md-4 col-lg-3"
-            >
+          {apps.map((app, index) => (
+            <div key={index} className="col-6 col-sm-6 col-md-4 col-lg-3">
               <div
                 className="card text-center shadow-sm"
                 style={{
@@ -65,7 +76,8 @@ const ListingAppLauncher = () => {
             </div>
           ))}
         </div>
-      </div>
+      )}
+    </div>
   );
 };
 
